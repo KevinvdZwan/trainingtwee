@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Person{% endblock %}
+
+{% block body %}
+    <h1>Person</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ person.id }}</td>
+            </tr>
+            <tr>
+                <th>Loginname</th>
+                <td>{{ person.loginname }}</td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td>{{ person.password }}</td>
+            </tr>
+            <tr>
+                <th>Firstname</th>
+                <td>{{ person.firstname }}</td>
+            </tr>
+            <tr>
+                <th>Preprovision</th>
+                <td>{{ person.preprovision }}</td>
+            </tr>
+            <tr>
+                <th>Lastname</th>
+                <td>{{ person.lastname }}</td>
+            </tr>
+            <tr>
+                <th>Dateofbirth</th>
+                <td>{{ person.dateofbirth }}</td>
+            </tr>
+            <tr>
+                <th>Gender</th>
+                <td>{{ person.gender }}</td>
+            </tr>
+            <tr>
+                <th>Emailadress</th>
+                <td>{{ person.emailadress }}</td>
+            </tr>
+            <tr>
+                <th>Hiring_date</th>
+                <td>{{ person.hiringDate ? person.hiringDate|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Salary</th>
+                <td>{{ person.salary }}</td>
+            </tr>
+            <tr>
+                <th>Street</th>
+                <td>{{ person.street }}</td>
+            </tr>
+            <tr>
+                <th>Postal_code</th>
+                <td>{{ person.postalCode }}</td>
+            </tr>
+            <tr>
+                <th>Place</th>
+                <td>{{ person.place }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('person_index') }}">back to list</a>
+
+    <a href="{{ path('person_edit', {'id': person.id}) }}">edit</a>
+
+    {{ include('person/delete_form.html.twig') }}
+{% endblock %}
