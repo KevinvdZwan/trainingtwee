@@ -1,15 +1,5 @@
-.footer  {
-    text-align: center;
-    background-color: dimgrey;
-    height: 80px;
-    width: 1100px;
-}
 
-.footer h5 {
-    color: red;
 
-}
-
-.footer h6 {
-    color: white;
+.contactpagina{
+    border: 5px solid black;
 }

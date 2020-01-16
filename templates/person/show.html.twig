@@ -33,7 +33,7 @@
             </tr>
             <tr>
                 <th>Dateofbirth</th>
-                <td>{{ person.dateofbirth }}</td>
+                <td>{{ person.dateofbirth ? person.dateofbirth|date('Y-m-d') : '' }}</td>
             </tr>
             <tr>
                 <th>Gender</th>

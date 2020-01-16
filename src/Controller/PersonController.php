@@ -91,4 +91,11 @@ class PersonController extends AbstractController
 
         return $this->redirectToRoute('person_index');
     }
+
+    /**
+     * @Route("/home", name="home")
+     */
+    public function home() {
+        return $this->render("home.html.twig");
+    }
 }
