@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -27,59 +29,72 @@ class Person
     private $password;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $firstname;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $preprovision;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $lastname;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="date", nullable=true)
      */
     private $dateofbirth;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $gender;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $emailadress;
 
-    /**
-     * @ORM\Column(type="string")
-     */
-    private $hiring_date;
+
 
     /**
-     * @ORM\Column(type="decimal", precision=5, scale=2)
+     * @ORM\Column(type="decimal", precision=5, scale=2, nullable=true)
      */
     private $salary;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $street;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $postal_code;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $place;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\lesson", mappedBy="person")
+     */
+    private $hiring_date;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\betaling", mappedBy="person")
+     */
+    private $member;
+
+    public function __construct()
+    {
+        $this->hiring_date = new ArrayCollection();
+        $this->member = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -182,17 +197,7 @@ class Person
         return $this;
     }
 
-    public function getHiringDate(): ?\DateTimeInterface
-    {
-        return $this->hiring_date;
-    }
 
-    public function setHiringDate(\DateTimeInterface $hiring_date): self
-    {
-        $this->hiring_date = $hiring_date;
-
-        return $this;
-    }
 
     public function getSalary(): ?string
     {
@@ -238,6 +243,68 @@ class Person
     public function setPlace(string $place): self
     {
         $this->place = $place;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|lesson[]
+     */
+    public function getHiringDate(): Collection
+    {
+        return $this->hiring_date;
+    }
+
+    public function addHiringDate(lesson $hiringDate): self
+    {
+        if (!$this->hiring_date->contains($hiringDate)) {
+            $this->hiring_date[] = $hiringDate;
+            $hiringDate->setPerson($this);
+        }
+
+        return $this;
+    }
+
+    public function removeHiringDate(lesson $hiringDate): self
+    {
+        if ($this->hiring_date->contains($hiringDate)) {
+            $this->hiring_date->removeElement($hiringDate);
+            // set the owning side to null (unless already changed)
+            if ($hiringDate->getPerson() === $this) {
+                $hiringDate->setPerson(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|betaling[]
+     */
+    public function getMember(): Collection
+    {
+        return $this->member;
+    }
+
+    public function addMember(betaling $member): self
+    {
+        if (!$this->member->contains($member)) {
+            $this->member[] = $member;
+            $member->setPerson($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMember(betaling $member): self
+    {
+        if ($this->member->contains($member)) {
+            $this->member->removeElement($member);
+            // set the owning side to null (unless already changed)
+            if ($member->getPerson() === $this) {
+                $member->setPerson(null);
+            }
+        }
 
         return $this;
     }

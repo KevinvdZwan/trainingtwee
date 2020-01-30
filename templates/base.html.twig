@@ -1,61 +1,85 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-            <link rel="stylesheet" href="\public/style.css">{% endblock %}
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+        <link rel="stylesheet" href="\public/style.css">{% endblock %}
 
-    </head>
-    <body>
-    {% block header %} <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="show-article-container p-3 mt-4">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <img class="img-fluid" src="\images/trainingfactory.png">
-                            <div class="show-article-title-container d-inline-block pl-3 align-middle"><p style="text-align: right; margin-left: 720px; color: red;"> </p>
-                                <span class="show-article-title"><h1 style="color: red; font-weight: bold; font-size: 60px;">Training Centrum</span>
-                                <br>
-                                <br>
-                                <span class="align-left article-details"> Den Haag </span></h1>
-                            </div>
+</head>
+<body>
+{% block header %}  <div class="article-border">
+    <div class="row">
+        <div class="col-sm-4">
+            <img class="img-fluid" src="\images/stootzak.jpg"></div>
+        <div class="col-sm-4">
+            <img class="img-fluid" src="\images/kickbox.jpg"></div>
+        <div class="col-sm-4">
+            <img class="img-fluid" src="\images/conormcgregor.jpg"></div>
+    </div>
+</div> <hr style="background-color: #AA3333">
+    <ul class="nav justify-content-center">
+        {% if is_granted('ROLE_ADMIN') %}
+            <li class="nav-item">
+                <a class="nav-link" href="/home">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/instructor">Instructeur</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/person">Leden</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/training">Training</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/logout">Uitloggen</a>
+            </li>
+        {% elseif is_granted("ROLE_INSTRUCTOR") %}
+            <li class="nav-item">
+                <a class="nav-link" href="/home">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/instructor/lesson/new">Plannen lessen</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/instructor/lesson/index">Lessen beheer</a>
+            </li>
+        {% elseif is_granted('ROLE_USER') %}
+            <li class="nav-item">
+                <a class="nav-link" href="/home">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/user/les/new">Inschrijven op les</a>
+            </li>
+            {#            <li class="nav-item">#}
+            {#                <a class="nav-link" href="#">Overzicht inschrijvingen</a>#}
+            {#            </li>#}
+            <li class="nav-item">
+                <a class="nav-link" href="/person/edit/{id}">Gegevens lid wijzigen</a>
+            </li>
+        {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="/home">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/home">Trainings Aanbod</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/home">Lid Worden</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/home">Gedragsregels</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/home">Lokatie & Contact</a>
+            </li>
+        {% endif %}
+    </ul>
+    <hr style="background-color: #AA3333">
+{% endblock %}
+{% block body %}{% endblock %}
 
-                            <hr>
-                        </div>
-                    </div>
-
-
-                    <nav class="navbar navbar-expand-lg navbar-bg mb-5">
-                        <a style="margin-left: 75px; color: red;" class="navbar-brand space-brand" href="/home">Home</a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                            <ul class="navbar-nav mr-auto">
-                                <li class="nav-item">
-                                    <a style="color: red;" class="nav-link" href="/training">Inschrijven op les</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a style="color: red;" class="nav-link" href="/lesson">Les Bekijken</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a style="color: red;" class="nav-link" href="/contact">fd</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
-                    <div class="article-border">
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <img class="img-fluid" src="\images/stootzak.jpg"></div>
-                            <div class="col-sm-4">
-                                <img class="img-fluid" src="\images/kickbox.jpg"></div>
-                            <div class="col-sm-4">
-                                <img class="img-fluid" src="\images/conormcgregor.jpg"></div>
-                        </div>{% endblock %}
-        {% block body %}{% endblock %}
 
 
 
@@ -67,10 +91,9 @@
 
 
 
-
-        {% block javascripts %}<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-            {% endblock %}
-    </body>
+{% block javascripts %}<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+{% endblock %}
+</body>
 </html>

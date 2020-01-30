@@ -18,13 +18,7 @@ class PersonType extends AbstractType
             ->add('preprovision')
             ->add('lastname')
             ->add('dateofbirth')
-            ->add('gender')
-            ->add('emailadress')
-            ->add('hiring_date')
-            ->add('salary')
-            ->add('street')
-            ->add('postal_code')
-            ->add('place')
+
         ;
     }
 

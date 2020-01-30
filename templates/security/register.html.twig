@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register!{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="\public/style.css">
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                {{ form_start(registrationForm) }}
+                {{ form_widget(registrationForm) }}
+
+                <button class="btn btn-lg btn-primary btn-block" type="submit">
+                    Register
+                </button>
+                {{ form_end(registrationForm) }}
+
+                {#
+                <form class="form-signin" method="post">
+                    <h1 class="h3 mb-3 font-weight-normal">Register</h1>
+                    <label for="inputEmail" class="sr-only">Email address</label>
+                    <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                    <label for="inputPassword" class="sr-only">Password</label>
+                    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+
+                    <div class="checkbox mb-3">
+                        <label>
+                            <input type="checkbox" name="_terms" required> Agree to terms I for sure read
+                        </label>
+                    </div>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">
+                        Register
+                    </button>
+                </form>
+                #}
+            </div>
+        </div>
+    </div>
+{% endblock %}

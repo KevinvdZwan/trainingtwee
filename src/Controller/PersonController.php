@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/person")
+ * @Route("/admin/person")
  */
 class PersonController extends AbstractController
 {
@@ -92,10 +92,6 @@ class PersonController extends AbstractController
         return $this->redirectToRoute('person_index');
     }
 
-    /**
-     * @Route("/home", name="home")
-     */
-    public function home() {
-        return $this->render("home.html.twig");
-    }
+
+
 }

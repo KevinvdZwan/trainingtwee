@@ -11,12 +11,12 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/lesson")
+ * @Route("/instructor/lesson")
  */
 class LessonController extends AbstractController
 {
     /**
-     * @Route("/", name="lesson_index", methods={"GET"})
+     * @Route("/index", name="lesson_index", methods={"GET"})
      */
     public function index(LessonRepository $lessonRepository): Response
     {

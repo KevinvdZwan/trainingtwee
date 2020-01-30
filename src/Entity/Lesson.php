@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -22,12 +24,12 @@ class Lesson
     private $time;
 
     /**
-     * @ORM\Column(type="time")
+     * @ORM\Column(type="date")
      */
     private $date;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="string")
      */
     private $location;
 
@@ -35,6 +37,28 @@ class Lesson
      * @ORM\Column(type="integer")
      */
     private $max_persons;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Person", inversedBy="hiring_date")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $person;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Training", inversedBy="lessons")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $lesson;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Betaling", mappedBy="lesson")
+     */
+    private $betaling;
+
+    public function __construct()
+    {
+        $this->betaling = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -85,6 +109,61 @@ class Lesson
     public function setMaxPersons(int $max_persons): self
     {
         $this->max_persons = $max_persons;
+
+        return $this;
+    }
+
+    public function getPerson(): ?Person
+    {
+        return $this->person;
+    }
+
+    public function setPerson(?Person $person): self
+    {
+        $this->person = $person;
+
+        return $this;
+    }
+
+    public function getLesson(): ?training
+    {
+        return $this->lesson;
+    }
+
+    public function setLesson(?training $lesson): self
+    {
+        $this->lesson = $lesson;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|betaling[]
+     */
+    public function getBetaling(): Collection
+    {
+        return $this->betaling;
+    }
+
+    public function addBetaling(betaling $betaling): self
+    {
+        if (!$this->betaling->contains($betaling)) {
+            $this->betaling[] = $betaling;
+            $betaling->setLesson($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBetaling(betaling $betaling): self
+    {
+        if ($this->betaling->contains($betaling)) {
+            $this->betaling->removeElement($betaling);
+            // set the owning side to null (unless already changed)
+            if ($betaling->getLesson() === $this) {
+                $betaling->setLesson(null);
+            }
+        }
 
         return $this;
     }
