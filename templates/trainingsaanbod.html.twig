@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+
+{% block body %}
+<h1>Trainingen Aanbod</h1>
+    <hr style="background-color: #AA3333">
+    <p>In ons trainingcentrum in Den Haag kan je verschillende soorten sporten en trainingen vinden. Denk hierbij aan MMA,
+    boksen en kickboksen.</p>
+    <div class="grid-container">
+        <div></div>
+        <div>MMA Training</div>
+        <div>Kickboks Training</div>
+        <div></div>
+        <div></div>
+        <div>Bokszaktraining</div>
+        <div>Stootzaktraining</div>
+
+    </div>
+
+    <style>
+        h1 {
+            color: black;
+            margin: auto;
+            text-align: center;
+        }
+        p {
+            margin: auto;
+            text-align: center;
+            font-size: 15   pt;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            grid-gap: 10px;
+            padding: 10px;
+        }
+
+        .grid-container > div {
+            text-align: center;
+            font-size: 30px;
+        }
+    </style>
+    <br><br><br><br><br><br>
+{% endblock %}
+
+{% block footer %}<footer>
+    <h5 style="color: red; text-align: center; margin: auto; ">Training Centrum Den Haag | 010 519 0532</h5>
+    <br>
+    <h6 style="color: white;">Developed by: Kevin</h6>
+</footer>{% endblock %}
+

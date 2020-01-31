@@ -19,4 +19,11 @@ class ArticleController extends AbstractController
         return $this->render('home.html.twig');
     }
 
+    /**
+     * @Route("/trainingsaanbod", name="app_trainingaanbod")
+     */
+    public function trainingAanbod() {
+        return $this->render('trainingsaanbod.html.twig');
+    }
+
 }

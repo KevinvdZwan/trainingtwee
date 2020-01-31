@@ -21,7 +21,7 @@
     <ul class="nav justify-content-center">
         {% if is_granted('ROLE_ADMIN') %}
             <li class="nav-item">
-                <a class="nav-link" href="/home">Home</a>
+                <a class="nav-link"  href="/home">Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/admin/instructor">Instructeur</a>
@@ -31,9 +31,6 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/admin/training">Training</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/logout">Uitloggen</a>
             </li>
         {% elseif is_granted("ROLE_INSTRUCTOR") %}
             <li class="nav-item">
@@ -56,17 +53,18 @@
             {#                <a class="nav-link" href="#">Overzicht inschrijvingen</a>#}
             {#            </li>#}
             <li class="nav-item">
-                <a class="nav-link" href="/person/edit/{id}">Gegevens lid wijzigen</a>
+                <a class="nav-link" href="/person/edit/{user}">Gegevens lid wijzigen</a>
             </li>
+
         {% else %}
             <li class="nav-item">
                 <a class="nav-link" href="/home">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/home">Trainings Aanbod</a>
+                <a class="nav-link" href="/trainingsaanbod">Trainings Aanbod</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/home">Lid Worden</a>
+                <a class="nav-link" href="/register">Lid Worden</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/home">Gedragsregels</a>
@@ -74,11 +72,27 @@
             <li class="nav-item">
                 <a class="nav-link" href="/home">Lokatie & Contact</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/login">Inloggen</a>
+            </li>
+        {% endif %}
+        {% if app.user %}<li class="nav-item">
+            <div class="mb-3">
+                <a class="nav-link" href="{{ path('app_logout') }}">{{ app.user.username }} Logout</a>
+            </div>
+            </li>
         {% endif %}
     </ul>
     <hr style="background-color: #AA3333">
 {% endblock %}
 {% block body %}{% endblock %}
+{% block footer %}<style>footer {
+    text-align: center;
+    background-color: dimgrey;
+    height: 80px;
+    width: 1100px;
+        margin: auto;
+    }{% endblock %}
 
 
 
