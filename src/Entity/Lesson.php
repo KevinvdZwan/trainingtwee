@@ -38,17 +38,7 @@ class Lesson
      */
     private $max_persons;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Person", inversedBy="hiring_date")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $person;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Training", inversedBy="lessons")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $lesson;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Betaling", mappedBy="lesson")
@@ -113,29 +103,8 @@ class Lesson
         return $this;
     }
 
-    public function getPerson(): ?Person
-    {
-        return $this->person;
-    }
 
-    public function setPerson(?Person $person): self
-    {
-        $this->person = $person;
 
-        return $this;
-    }
-
-    public function getLesson(): ?training
-    {
-        return $this->lesson;
-    }
-
-    public function setLesson(?training $lesson): self
-    {
-        $this->lesson = $lesson;
-
-        return $this;
-    }
 
     /**
      * @return Collection|betaling[]

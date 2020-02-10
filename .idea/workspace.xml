@@ -2,21 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bca5d3b8-deef-4f27-a7ce-556b0c28601a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/trainingsaanbod.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/trainingfactory2.0.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/trainingfactory2.0.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ArticleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ArticleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Security/LoginAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/LoginAuthenticator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/LessonController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/LessonController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/PersonController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PersonController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Betaling.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Betaling.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Lesson.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Lesson.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Person.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Person.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/LessonType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/LessonType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/PersonType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/PersonType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20200114115323.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20200114124209.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20200114125526.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20200114125625.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20200117074828.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20200128112949.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20200128113210.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20200128114043.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20200130132657.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20200130135505.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20200130135734.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20200130140026.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20200130140534.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20200130140631.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/lesson/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/lesson/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/person/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/person/index.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -123,7 +133,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../registratie" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../kapper" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunDashboard">
@@ -156,7 +166,10 @@
       <workItem from="1580115898776" duration="7109000" />
       <workItem from="1580209099139" duration="7363000" />
       <workItem from="1580379879362" duration="11431000" />
-      <workItem from="1580456220971" duration="7268000" />
+      <workItem from="1580456220971" duration="7836000" />
+      <workItem from="1580715621366" duration="4852000" />
+      <workItem from="1580720743132" duration="1687000" />
+      <workItem from="1580724611408" duration="568000" />
     </task>
     <servers />
   </component>
@@ -181,7 +194,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/src/Controller/LessonController.php</url>
-          <line>72</line>
+          <line>75</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

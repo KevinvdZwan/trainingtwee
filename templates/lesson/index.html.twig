@@ -8,7 +8,6 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Time</th>
                 <th>Date</th>
                 <th>Location</th>
@@ -19,7 +18,6 @@
         <tbody>
         {% for lesson in lessons %}
             <tr>
-                <td>{{ lesson.id }}</td>
                 <td>{{ lesson.time ? lesson.time|date('H:i:s') : '' }}</td>
                 <td>{{ lesson.date ? lesson.date|date('Y-m-d') : '' }}</td>
                 <td>{{ lesson.location }}</td>

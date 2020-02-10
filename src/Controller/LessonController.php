@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\Lesson;
 use App\Form\LessonType;
 use App\Repository\LessonRepository;
+use App\Repository\PersonRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -28,14 +30,15 @@ class LessonController extends AbstractController
     /**
      * @Route("/new", name="lesson_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request,PersonRepository $personRepository,EntityManagerInterface $entityManager): Response
     {
         $lesson = new Lesson();
         $form = $this->createForm(LessonType::class, $lesson);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
+
+
             $entityManager->persist($lesson);
             $entityManager->flush();
 

@@ -39,7 +39,7 @@ class PersonController extends AbstractController
             $entityManager->persist($person);
             $entityManager->flush();
 
-            return $this->redirectToRoute('person_index');
+            return $this->redirectToRoute('person _index');
         }
 
         return $this->render('person/new.html.twig', [

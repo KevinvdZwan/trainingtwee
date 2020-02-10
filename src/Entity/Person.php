@@ -81,12 +81,12 @@ class Person
     private $place;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\lesson", mappedBy="person")
+     * @ORM\OneToMany(targetEntity="App\Entity\Lesson", mappedBy="person")
      */
     private $hiring_date;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\betaling", mappedBy="person")
+     * @ORM\OneToMany(targetEntity="App\Entity\Betaling", mappedBy="person")
      */
     private $member;
 
@@ -248,7 +248,7 @@ class Person
     }
 
     /**
-     * @return Collection|lesson[]
+     * @return Collection|Lesson[]
      */
     public function getHiringDate(): Collection
     {

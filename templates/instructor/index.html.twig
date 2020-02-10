@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Instructor index{% endblock %}
+
+{% block body %}
+    <h1>Instructor index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Naam</th>
+                <th>Hiring_date</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for instructor in instructors %}
+            <tr>
+                <td>{{ instructor.id }}</td>
+                <td>{{ instructor.naam }}</td>
+                <td>{{ instructor.hiringDate ? instructor.hiringDate|date('d-m-Y') : ''  }}</td>
+                <td>
+                    <a href="{{ path('instructor_show', {'id': instructor.id}) }}">show</a>
+                    <a href="{{ path('instructor_edit', {'id': instructor.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('instructor_new') }}">Create new</a>
+{% endblock %}
